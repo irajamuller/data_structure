@@ -1,5 +1,3 @@
-from typing import overload
-import numpy as np
 from Exceptions import UnderflowError
 from ADTList import ADTList
 from Node import DNode

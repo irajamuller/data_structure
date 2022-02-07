@@ -1,4 +1,3 @@
-import numpy as np
 from Exceptions import UnderflowError
 from ADTQueue import ADTQueue
 from Node import Node

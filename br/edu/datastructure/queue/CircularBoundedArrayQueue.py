@@ -1,4 +1,3 @@
-from numpy import size
 from Exceptions import OverflowError, UnderflowError
 from UnboundedArrayQueue import UnboundedArrayQueue
 from ADTQueue import ADTQueue
