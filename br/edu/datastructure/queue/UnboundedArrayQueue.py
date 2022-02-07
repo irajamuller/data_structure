@@ -1,4 +1,3 @@
-from xml.sax import make_parser
 import numpy as np
 from Exceptions import UnderflowError
 from ADTQueue import ADTQueue
@@ -25,7 +24,7 @@ class UnboundedArrayQueue(ADTQueue):
         return False
 
     def enqueue(self, element: object) -> None:
-        if self.size() == len(self._elements):
+        if len(self) == len(self._elements):
             self._elements = np.concatenate((self._elements, 
                              np.empty(len(self._elements), object)))
         self._last += 1
