@@ -12,7 +12,7 @@ class DoublyLinkedList(ADTList):
 
     def __len__(self) -> int:
         return self._count
-        
+
     def __str__(self) -> str:
         return "[" + " ".join([str(node) for node in self]) + "]"
 
@@ -60,7 +60,7 @@ class DoublyLinkedList(ADTList):
             prev: DNode = self._first
             for _ in range(0, pos - 1):
                 prev = prev.next
-			
+
             new_node: DNode = DNode(element)
             new_node.prev = prev
             new_node.next = prev.next
@@ -90,7 +90,7 @@ class DoublyLinkedList(ADTList):
     def remove_first(self) -> object:
         if self.is_empty():
             raise UnderflowError()
-		
+
         element: object = self._first.element
         if (self._first == self._last):
             self._first = self._last = None
@@ -103,7 +103,7 @@ class DoublyLinkedList(ADTList):
     def remove_last(self) -> object:
         if self.is_empty():
             raise UnderflowError()
-		
+
         element: object = self._last.element
         if (self._first == self._last):
             self._first = self._last = None
@@ -114,13 +114,9 @@ class DoublyLinkedList(ADTList):
         return element
 
     def search(self, element: object) -> int:
-        i: int = 0
-        current: DNode = self._first
-        while current:
-            if current.element == element:
-                return  i
-            current = current.next
-            i += 1
+        for i, elm in enumerate(self):
+            if elm == element:
+                return i
         return -1
 
     def get(self, pos: int) -> object:

@@ -35,7 +35,7 @@ class UnboundedArrayList(ADTList):
         self.insert(element, 0)
 
     def insert_last(self, element: object) -> None:
-        self.insert(element, self._pos)
+        self.insert(element, self._count)
 
     def insert(self, element: object, pos: int) -> None:
         if (pos < 0 or pos > self._count):
@@ -74,7 +74,7 @@ class UnboundedArrayList(ADTList):
         return self._elements[pos]
 
     def search(self, element: object) -> int:
-        for i in range(0, self._count):
-            if (self._elements[i] == element):
+        for i, elm in enumerate(self):
+            if elm == element:
                 return i
         return -1

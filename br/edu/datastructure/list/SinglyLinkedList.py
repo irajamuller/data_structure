@@ -111,13 +111,9 @@ class SinglyLinkedList(ADTList):
         return element
 
     def search(self, element: object) -> int:
-        i: int = 0
-        current: Node = self._first
-        while current:
-            if current.element == element:
-                return  i
-            current = current.next
-            i += 1
+        for i, elm in enumerate(self):
+            if elm == element:
+                return i
         return -1
 
     def get(self, pos: int) -> object:
