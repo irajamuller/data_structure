@@ -1,4 +1,3 @@
-from turtle import clear
 import numpy as np
 from ADTStack import ADTStack
 from Exceptions import UnderflowError

@@ -8,7 +8,7 @@ class BoundedArrayStack(UnboundedArrayStack):
         super().__init__(size)
 
     def is_full(self) -> bool:
-        return self.size() == len(self._elements)
+        return len(self) == len(self._elements)
 
     def push(self, element: object) -> None:
         if self.is_full():
