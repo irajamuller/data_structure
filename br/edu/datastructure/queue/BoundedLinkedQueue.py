@@ -1,8 +1,7 @@
 from ADTQueue import ADTQueue
-from Node import Node
-from UnboundedLinkedQueue import UnboundedArrayQueue
+from UnboundedLinkedQueue import UnboundedLinkedQueue
 
-class BoundedArrayQueue(UnboundedArrayQueue):
+class BoundedLinkedQueue(UnboundedLinkedQueue):
     def __init__(self, size: int = ADTQueue.DEFAULT_SIZE) -> None:
         super().__init__()
         self._size: int = size

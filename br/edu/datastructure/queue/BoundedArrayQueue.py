@@ -7,7 +7,7 @@ class BoundedArrayQueue(UnboundedArrayQueue):
         super().__init__(size)
 
     def is_full(self) -> bool:
-        return self.size() == len(self._elements)
+        return len(self) == len(self._elements)
 
     def enqueue(self, element: object) -> None:
         if self.is_full():

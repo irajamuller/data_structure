@@ -32,7 +32,7 @@ class UnboundedArrayStack(ADTStack):
         self._elements[self._top] = element
 
     def pop(self) -> object:
-        if self.isEmpty():
+        if self.is_empty():
             raise UnderflowError()
         element: object = self._elements[self._top]
         self._elements[self._top] = None
@@ -40,7 +40,7 @@ class UnboundedArrayStack(ADTStack):
         return element
     
     def peek(self) -> object:
-        if self.isEmpty():
+        if self.is_empty():
             raise UnderflowError()
         return self._elements[self._top]
 

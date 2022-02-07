@@ -1,10 +1,12 @@
-from ADTStack import ADTStack
-from Node import Node
+import numpy as np
 from Exceptions import UnderflowError
+from ADTQueue import ADTQueue
+from Node import Node
 
-class UnboundedLinkedStack(ADTStack):
+class UnboundedLinkedQueue(ADTQueue):
     def __init__(self) -> None:
-        self._top: Node = None
+        self._first: Node = None
+        self._last: Node = None
         self._count: int = 0
 
     def __len__(self) -> int:
@@ -14,7 +16,7 @@ class UnboundedLinkedStack(ADTStack):
         return "[" + " ".join([str(node) for node in self]) + "]"
 
     def __iter__(self) -> object:
-        current: Node = self._top
+        current: Node = self._first
         while current:
             yield current.element
             current = current.next
@@ -25,24 +27,30 @@ class UnboundedLinkedStack(ADTStack):
     def is_full(self) -> bool:
         return False
 
-    def push(self, element: object) -> None:
+    def enqueue(self, element: object) -> None:
         new_node: Node = Node(element)
-        new_node.next = self._top
-        self._top = new_node
+        if self.is_empty():
+            self._first = self._last = new_node
+        else:
+            self._last.next = new_node
+            self._last = new_node
         self._count += 1
 
-    def pop(self) -> object:
-        if self.isEmpty():
+    def dequeue(self) -> object:
+        if self.is_empty():
             raise UnderflowError()
-        element: object = self._top.element
-        self._top = self._top.next
+        element: object = self._last.element
+        if self._first == self._last:
+            self._first = self._last = None
+        else:
+            self._first = self._first.next
         self._count -= 1
         return element
-
+    
     def peek(self) -> object:
-        if self.isEmpty():
+        if self.is_empty():
             raise UnderflowError()
-        return self._top.element
+        return self._first.element
 
     def size(self) -> int:
         return len(self)

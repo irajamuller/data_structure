@@ -2,17 +2,16 @@ from BoundedLinkedStack import BoundedLinkedStack
 from UnboundedLinkedStack import UnboundedLinkedStack
 from BoundedArrayStack import BoundedArrayStack
 from UnboundedArrayStack import UnboundedArrayStack
-from IStack import IStack
+from ADTStack import ADTStack
 
 if __name__ == "__main__":
-    s: IStack = UnboundedArrayStack()
+    s: ADTStack = UnboundedLinkedStack()
     for i in range(10):
         s.push(i)
     print(s)
-    s.clear()
     print("peek %d" % (s.peek()))
-    print("isEmpty %s" % (s.isEmpty()))
-    print("isFull %s" % (s.isFull()))
+    print("isEmpty %s" % (s.is_empty()))
+    print("isFull %s" % (s.is_full()))
     print("pop %d" % (s.pop()))
     print("len %d" % (s.size()))
     print(s)
